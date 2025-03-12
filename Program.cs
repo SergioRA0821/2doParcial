@@ -16,7 +16,35 @@ namespace _2doParcial
         }
         static void Main(string[] args)
         {
-            
+            Acciones acc = new Acciones();
+            while (true)
+            {
+                switch (menu())
+                {
+                    case Menu.AgregarTel:
+                        acc.AgregarTelefono();
+                        break;
+                    case Menu.MostrarTel:
+                        acc.MostrarTelefonos();
+                        break;
+                    case Menu.ActualizarTel:
+                        Console.WriteLine("De qué color es el teléfono que desea actualizar?");
+                        string color = Console.ReadLine();
+                        acc.ActualizarTelefono(color);
+                        break;
+                    case Menu.EliminarTel:
+                        Console.WriteLine("De qué color es el teléfono que deseas eliminar?");
+                        string color2 = Console.ReadLine();
+                        acc.EliminarTelefono(color2);
+                        break;
+                    case Menu.Salir:
+                        Environment.Exit(1);
+                        break;
+                    default:
+                        Console.WriteLine("Número incorrecto...intenta con otro.");
+                        break;
+                }
+            }
         }
         static Menu menu()
         {
